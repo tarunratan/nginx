@@ -1,0 +1,15 @@
+version: '3'
+services:
+  load-balancer-nginx:
+    container_name: dev-nginx
+    image: ai/nginx:v1
+    restart: always
+    volumes:
+      - ./ssl:/etc/ssl/certs
+      - ./proxy/conf.d:/etc/nginx/conf.d
+      - ./logs:/var/log/nginx
+      - ./comingsoon:/var/www/html/comingsoon
+      - '/etc/localtime:/etc/localtime:ro'
+    ports:
+      - "80:80"
+      - "443:443"
