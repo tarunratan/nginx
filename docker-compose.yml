@@ -3,6 +3,7 @@ services:
   load-balancer-nginx:
     container_name: dev-nginx
     image: ai/nginx:v1
+    build: .
     restart: always
     volumes:
       - ./ssl:/etc/ssl/certs
